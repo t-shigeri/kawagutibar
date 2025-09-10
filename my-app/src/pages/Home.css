@@ -1,0 +1,98 @@
+/* ===== Home ページ ===== */
+
+.home {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.home__main {
+  padding-bottom: 80px; /* BottomBar用の余白 */
+}
+
+@media (min-width: 768px) {
+  .home__main {
+    padding-bottom: 0;
+  }
+}
+
+.home__section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.home__section:nth-child(1) { animation-delay: 0.1s; }
+.home__section:nth-child(2) { animation-delay: 0.2s; }
+.home__section:nth-child(3) { animation-delay: 0.3s; }
+.home__section:nth-child(4) { animation-delay: 0.4s; }
+.home__section:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* セクション間のスペーシング */
+.home__section + .home__section {
+  margin-top: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .home__section + .home__section {
+    margin-top: calc(var(--spacing-xl) * 2);
+  }
+}
+
+/* パララックス効果用 */
+.home__parallax {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* モバイルではパララックスを無効化 */
+@media (max-width: 768px) {
+  .home__parallax {
+    background-attachment: scroll;
+  }
+}
+
+/* CTAセクション */
+.home__cta {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: linear-gradient(45deg, var(--color-primary), rgba(100, 108, 255, 0.8));
+}
+
+.home__cta-title {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.home__cta-description {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+}
+
+.home__cta-button {
+  background: white;
+  color: var(--color-primary);
+  border: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  display: inline-block;
+  transition: all var(--transition-base);
+}
+
+.home__cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}

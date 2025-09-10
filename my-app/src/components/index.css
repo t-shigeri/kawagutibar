@@ -1,0 +1,29 @@
+/* ===== Components CSS インデックス ===== */
+/* このファイルを使用して、すべてのコンポーネントのCSSを一括インポートできます */
+
+/* Header */
+@import './Header.css';
+
+/* Hero */
+@import './Hero.css';
+
+/* Menu */
+@import './Menu.css';
+
+/* Gallery */
+@import './Gallery.css';
+
+/* About */
+@import './About.css';
+
+/* Access */
+@import './Access.css';
+
+/* Reserve */
+@import './Reserve.css';
+
+/* Footer */
+@import './Footer.css';
+
+/* BottomBar */
+@import './BottomBar.css';

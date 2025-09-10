@@ -1,0 +1,14 @@
+/* ===== Pages CSS インデックス ===== */
+/* このファイルを使用して、すべてのページのCSSを一括インポートできます */
+
+/* Home */
+@import './Home.css';
+
+/* MenuIndex */
+@import './MenuIndex.css';
+
+/* MenuCategory */
+@import './MenuCategory.css';
+
+/* NotFound */
+@import './NotFound.css';

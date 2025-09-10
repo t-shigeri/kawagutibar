@@ -1,0 +1,119 @@
+/* ===== Access コンポーネント ===== */
+
+.access {
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: var(--color-bg);
+}
+
+.access__container {
+  max-width: var(--breakpoint-xl);
+  margin: 0 auto;
+}
+
+.access__title {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-size: 2.5rem;
+  color: var(--color-text);
+}
+
+.access__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .access__content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.access__info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+.access__info-item {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.access__info-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.access__info-title {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.access__info-content {
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.access__map {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+  .access__map {
+    height: 400px;
+  }
+}
+
+.access__map-placeholder {
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.access__directions {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: rgba(100, 108, 255, 0.1);
+  border-radius: var(--border-radius);
+}
+
+.access__directions-title {
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.access__directions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.access__directions-item {
+  padding: var(--spacing-xs) 0;
+  color: var(--color-text);
+  line-height: 1.6;
+  position: relative;
+  padding-left: var(--spacing-md);
+}
+
+.access__directions-item::before {
+  content: "•";
+  color: var(--color-primary);
+  position: absolute;
+  left: 0;
+}

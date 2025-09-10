@@ -1,17 +1,39 @@
 # CSS アーキテクチャ
 
-このディレクトリには、プロジェクト全体のCSSファイルがカテゴリー別に整理されています。
+このプロジェクトのCSSは、保守性と再利用性を重視して構造化されています。
 
-## ファイル構造
+## ディレクトリ構造
 
 ```
-src/styles/
-├── variables.css    # CSS変数、テーマ設定
-├── globals.css      # グローバル要素（body、h1、button等）
-├── layout.css       # レイアウト関連（#root、カード、フレックス等）
-├── components.css   # 再利用可能コンポーネント（ロゴ、ボタン等）
-├── animations.css   # アニメーション定義
-└── README.md        # このファイル
+src/
+├── index.css                    # メインCSSファイル（インポートのみ）
+├── App.css                      # App.jsx専用スタイル
+├── styles/                      # 共通スタイル
+│   ├── variables.css           # CSS変数、テーマ設定
+│   ├── globals.css             # グローバル要素
+│   ├── layout.css              # レイアウト関連
+│   ├── components.css          # 再利用可能コンポーネント
+│   ├── animations.css          # アニメーション定義
+│   └── README.md               # このファイル
+├── components/                  # 個別コンポーネントスタイル
+│   ├── Header.css              # Header専用スタイル
+│   ├── Hero.css                # Hero専用スタイル
+│   ├── Menu.css                # Menu専用スタイル
+│   ├── Gallery.css             # Gallery専用スタイル
+│   ├── About.css               # About専用スタイル
+│   ├── Access.css              # Access専用スタイル
+│   ├── Reserve.css             # Reserve専用スタイル
+│   ├── Footer.css              # Footer専用スタイル
+│   ├── BottomBar.css           # BottomBar専用スタイル
+│   ├── index.css               # 全コンポーネントCSS一括インポート
+│   ├── Header.jsx              # サンプルコンポーネント
+│   └── Hero.jsx                # サンプルコンポーネント
+└── pages/                      # 個別ページスタイル
+    ├── Home.css                # Home専用スタイル
+    ├── MenuIndex.css           # MenuIndex専用スタイル
+    ├── MenuCategory.css        # MenuCategory専用スタイル
+    ├── NotFound.css            # NotFound専用スタイル
+    └── index.css               # 全ページCSS一括インポート
 ```
 
 ## インポート順序
@@ -75,17 +97,100 @@ CSS変数を使用してテーマの一貫性を保ちます：
 - `--breakpoint-lg`: 1024px
 - `--breakpoint-xl`: 1280px
 
-## 新しいスタイルの追加
+## コンポーネント専用CSSの使用方法
 
-1. **グローバル要素**: `globals.css`に追加
-2. **レイアウト**: `layout.css`に追加
-3. **再利用コンポーネント**: `components.css`に追加
-4. **アニメーション**: `animations.css`に追加
-5. **コンポーネント固有**: 各コンポーネントの`.css`ファイルに追加
+### 1. 個別インポート（推奨）
+
+各コンポーネントで必要なCSSのみをインポート：
+
+```jsx
+// Header.jsx
+import React from 'react';
+import './Header.css'; // Header専用スタイル
+
+const Header = () => {
+  return (
+    <header className="header">
+      <div className="header__container">
+        {/* コンポーネント内容 */}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+```
+
+### 2. 一括インポート
+
+すべてのコンポーネントCSSを一度にインポート：
+
+```css
+/* index.css または App.css で */
+@import './components/index.css';
+@import './pages/index.css';
+```
+
+### 3. 選択的インポート
+
+特定のコンポーネントのみインポート：
+
+```css
+/* 必要なコンポーネントのみ */
+@import './components/Header.css';
+@import './components/Hero.css';
+@import './components/Footer.css';
+```
+
+## CSS命名規則
+
+### BEM記法を採用
+
+```css
+/* ブロック */
+.header { }
+
+/* エレメント */
+.header__container { }
+.header__logo { }
+.header__nav { }
+
+/* モディファイア */
+.header__nav-link--active { }
+.button--primary { }
+.button--secondary { }
+```
+
+## 新しいコンポーネントの追加
+
+1. **コンポーネントファイル作成**: `src/components/NewComponent.jsx`
+2. **CSSファイル作成**: `src/components/NewComponent.css`
+3. **コンポーネント内でインポート**:
+   ```jsx
+   import './NewComponent.css';
+   ```
+4. **必要に応じてインデックスに追加**: `src/components/index.css`
+
+## スタイルの優先度
+
+1. **variables.css** - CSS変数（最高優先度）
+2. **globals.css** - 基本HTML要素
+3. **layout.css** - レイアウト構造
+4. **components.css** - 再利用可能コンポーネント
+5. **個別CSS** - コンポーネント専用スタイル
+6. **animations.css** - アニメーション（最低優先度）
+
+## パフォーマンス考慮
+
+- **個別インポート推奨**: 不要なCSSの読み込みを避ける
+- **CSS変数活用**: テーマ変更時の効率化
+- **メディアクエリ統一**: レスポンシブ対応の一貫性
 
 ## ベストプラクティス
 
 - CSS変数を積極的に活用
-- BEM記法または意味のあるクラス名を使用
+- BEM記法で明確な命名
 - レスポンシブファーストで設計
-- アクセシビリティを考慮（フォーカス、モーション等）
+- アクセシビリティを考慮
+- コンポーネント単位でのスタイル管理
+- 不要なCSSインポートは避ける

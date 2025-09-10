@@ -15,3 +15,9 @@
 
 /* 5. アニメーション */
 @import './styles/animations.css';
+
+/* 6. 個別コンポーネント（必要に応じてコメントアウト） */
+/* @import './components/index.css'; */
+
+/* 7. ページスタイル（必要に応じてコメントアウト） */
+/* @import './pages/index.css'; */
