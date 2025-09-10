@@ -1,0 +1,42 @@
+/* ===== レイアウト関連スタイル ===== */
+
+/* メインコンテナ */
+#root {
+  max-width: var(--breakpoint-xl);
+  margin: 0 auto;
+  padding: var(--spacing-sm);
+  text-align: center;
+}
+
+/* モバイル端末向けの調整 */
+@media (min-width: 640px) {
+  #root {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* ロゴコンテナ */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+/* カードレイアウト */
+.card {
+  padding: var(--spacing-md);
+}
+
+/* タブレット以上でのカードパディング調整 */
+@media (min-width: 768px) {
+  .card {
+    padding: 2em;
+  }
+}
+
+/* 読み物テキスト */
+.read-the-docs {
+  color: var(--color-muted);
+}

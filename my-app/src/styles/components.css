@@ -1,0 +1,44 @@
+/* ===== 再利用可能なコンポーネント ===== */
+
+/* ロゴ */
+.logo {
+  height: 4em;
+  padding: var(--spacing-sm);
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+/* タブレット以上でロゴサイズを拡大 */
+@media (min-width: 768px) {
+  .logo {
+    height: 6em;
+    padding: var(--spacing-md);
+  }
+}
+
+/* ロゴホバーエフェクト */
+.logo:hover {
+  filter: drop-shadow(var(--shadow-glow-primary));
+}
+
+.logo.react:hover {
+  filter: drop-shadow(var(--shadow-glow-react));
+}
+
+/* カードコンポーネント */
+.card {
+  background: transparent;
+  border: none;
+  /* 必要に応じて追加のカードスタイルをここに */
+}
+
+/* インタラクティブボタン（カウンター等） */
+.interactive-button {
+  /* 特別なボタンスタイルが必要な場合はここに */
+}
+
+/* 情報テキスト */
+.info-text {
+  color: var(--color-muted);
+  font-size: 0.9em;
+}

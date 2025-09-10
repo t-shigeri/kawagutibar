@@ -1,0 +1,65 @@
+/* ===== グローバル要素のスタイル ===== */
+
+/* リンク */
+a {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* ボディ */
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* 見出し */
+h1 {
+  font-size: var(--font-size-h1-mobile);
+  line-height: 1.2;
+}
+
+/* タブレット以上でのフォントサイズ調整 */
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--font-size-h1-desktop);
+    line-height: 1.1;
+  }
+}
+
+/* ボタン */
+button {
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-button-mobile);
+  font-weight: var(--font-weight-medium);
+  font-family: inherit;
+  background-color: var(--color-button-bg);
+  cursor: pointer;
+  transition: border-color var(--transition-base);
+}
+
+/* タブレット以上でのボタンサイズ調整 */
+@media (min-width: 768px) {
+  button {
+    padding: 0.6em 1.2em;
+    font-size: var(--font-size-button-desktop);
+  }
+}
+
+button:hover {
+  border-color: var(--color-primary);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

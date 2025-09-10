@@ -1,0 +1,66 @@
+/* ===== CSS変数とテーマ設定 ===== */
+:root {
+  /* フォント設定 */
+  --font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --line-height-base: 1.5;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+
+  /* カラースキーム */
+  color-scheme: light dark;
+  
+  /* ダークテーマカラー */
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-bg: #242424;
+  --color-primary: #646cff;
+  --color-primary-hover: #535bf2;
+  --color-button-bg: #1a1a1a;
+  --color-muted: #888;
+
+  /* フォントサイズ */
+  --font-size-h1-mobile: 2.5rem;
+  --font-size-h1-desktop: 3.2em;
+  --font-size-button-mobile: 0.9rem;
+  --font-size-button-desktop: 1em;
+
+  /* スペーシング */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+
+  /* ブレークポイント（参考値） */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* 装飾 */
+  --border-radius: 8px;
+  --transition-base: 0.25s;
+  --shadow-glow-primary: 0 0 2em #646cffaa;
+  --shadow-glow-react: 0 0 2em #61dafbaa;
+
+  /* フォント品質向上 */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* ライトテーマ */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-text: #213547;
+    --color-bg: #ffffff;
+    --color-primary-hover: #747bff;
+    --color-button-bg: #f9f9f9;
+  }
+}

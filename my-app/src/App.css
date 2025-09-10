@@ -1,64 +1,12 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
-}
+/* ===== App.jsx専用スタイル ===== */
+/* 
+  このファイルはApp.jsxコンポーネント専用のスタイルを定義します。
+  グローバルスタイルは /src/styles/ フォルダに整理されています。
+  
+  必要に応じて、App.jsx固有のスタイルをここに追加してください。
+*/
 
-/* モバイル端末向けの調整 */
-@media (min-width: 640px) {
-  #root {
-    padding: 2rem;
-  }
-}
-
-.logo {
-  height: 4em;
-  padding: 1em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-/* タブレット以上でロゴサイズを拡大 */
-@media (min-width: 768px) {
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-  }
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 1.5rem;
-}
-
-/* タブレット以上でのカードパディング調整 */
-@media (min-width: 768px) {
-  .card {
-    padding: 2em;
-  }
-}
-
-.read-the-docs {
-  color: #888;
+/* 例: App.jsx固有のクラス */
+.app-specific-class {
+  /* App.jsx専用スタイルをここに追加 */
 }

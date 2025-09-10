@@ -1,0 +1,56 @@
+/* ===== アニメーション ===== */
+
+/* ロゴ回転アニメーション */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* モーション設定を優先するユーザーに対してアニメーションを適用 */
+@media (prefers-reduced-motion: no-preference) {
+  .logo-container a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* フェードイン効果（将来の拡張用） */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* スケールアップ効果（将来の拡張用） */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ホバー時のスムーズトランジション */
+.smooth-hover {
+  transition: all var(--transition-base) ease;
+}
+
+/* ボタンクリック時のアニメーション */
+.button-click {
+  transition: transform 0.1s ease;
+}
+
+.button-click:active {
+  transform: scale(0.95);
+}
