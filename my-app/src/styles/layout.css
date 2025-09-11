@@ -1,0 +1,31 @@
+.container {
+    width: min(960px, 92%);
+    margin-inline: auto;
+}
+
+.section {
+    padding: 72px 0;
+}
+
+.section.alt {
+    background: #0f1113;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* モバイル縦積み */
+    gap: 32px;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .two-col {
+        grid-template-columns: 1.1fr 0.9fr;
+    }
+}
+
+/* iOS ノッチの安全域 */
+.site-header {
+    padding-top: env(safe-area-inset-top);
+}

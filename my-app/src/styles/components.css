@@ -1,0 +1,65 @@
+.btn-primary {
+    background: var(--brand);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-ghost {
+    border: 1px solid #2a2f33;
+    color: var(--fg);
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #24282b;
+    border-radius: 14px;
+    padding: 16px;
+    text-decoration: none;
+    color: var(--fg);
+}
+
+.card:hover {
+    border-color: #2f353a;
+}
+
+.badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 18px 0 0;
+    list-style: none;
+}
+
+.badges li {
+    background: var(--card);
+    border: 1px solid #24282b;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+.rounded {
+    border-radius: 14px;
+}
+
+.note {
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+.btn-reset {
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    padding: 0;
+    cursor: pointer;
+}

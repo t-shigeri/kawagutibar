@@ -1,0 +1,36 @@
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* SP: 1列 */
+    gap: 18px;
+    margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+    .menu-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.menu-card {
+    background: var(--card);
+    border: 1px solid #24282b;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.menu-card h3 {
+    margin: 0 0 4px;
+    font-size: 18px;
+}
+
+.menu-card .price {
+    color: var(--accent);
+    font-weight: 700;
+}

@@ -1,0 +1,11 @@
+:root {
+    --bg: #111315;
+    --fg: #f3f3f3;
+    --muted: #c7c7c7;
+    --brand: #7a1f2a;
+    --accent: #caa76a;
+    --card: #181b1e;
+
+    /* モバイル優先のスペーシング */
+    --space: 16px;
+}

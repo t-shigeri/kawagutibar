@@ -1,0 +1,19 @@
+.site-footer {
+    border-top: 1px solid #222;
+    background: #0c0e10;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.footer-inner small {
+    color: #a7a7a7;
+}
+
+.policy {
+    opacity: .85;
+}

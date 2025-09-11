@@ -1,0 +1,11 @@
+.reserve-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 900px) {
+    .reserve-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
