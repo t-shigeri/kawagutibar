@@ -1,14 +1,20 @@
-/* 共通ヘッダー外観 */
+/* ===============================
+   共通ヘッダー外観
+   =============================== */
 .site-header,
 .kb-header {
     position: sticky;
+    /* スクロールしてもヘッダーを上部に固定 */
     top: 0;
-    z-index: 50;
+    z-index: 999;
+    /* 50 → 999 に引き上げ */
+    isolation: isolate;
+    /* 新しい stacking context を作る */
     background: rgba(17, 19, 21, .72);
     backdrop-filter: blur(8px) saturate(1.1);
     border-bottom: 1px solid #222;
-    padding-top: env(safe-area-inset-top);
-    
+    padding-top: max(env(safe-area-inset-top), 0px);
+    /* iOS ノッチ対応 */
 }
 
 .nav,
@@ -17,6 +23,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    /* バー内要素を前面化 */
 }
 
 .logo,
@@ -39,44 +48,15 @@ nav a,
     margin-left: 16px;
 }
 
-.kb-nav--desktop a,
-.kb-nav--desktop .btn-reset,
-.kb-nav--desktop .btn-primary {
-    display: flex;
-    align-items: center;
-    height: 64px;
-    /* ヘッダーと同じ高さ */
-    padding: 0 12px;
-    /* 横だけ余白 */
-}
-
 nav a:hover,
 .kb-nav a:hover {
     opacity: 1;
 }
 
-/* PC/モバイル切替 */
-.kb-nav--desktop {
-    display: none;
-}
 
-.kb-nav--mobile {
-    display: inline-flex;
-}
-
-@media (min-width: 1024px) {
-    .kb-nav--desktop {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .kb-nav--mobile {
-        display: none;
-    }
-}
-
-/* ハンバーガー */
+/* ===============================
+   ハンバーガーボタン
+   =============================== */
 .hamburger,
 .kb-hamburger {
     width: 40px;
@@ -114,7 +94,9 @@ nav a:hover,
     transform: translateY(-6px) rotate(-45deg);
 }
 
-/* モバイルドロワー */
+/* ===============================
+   モバイルドロワーメニュー
+   =============================== */
 .mobile-drawer,
 .kb-drawer {
     position: fixed;
@@ -129,7 +111,8 @@ nav a:hover,
     flex-direction: column;
     gap: 8px;
     padding: 12px 16px;
-    z-index: 49;
+    z-index: 1000;
+    /* ヘッダーよりさらに上 */
 }
 
 .mobile-drawer a,
@@ -158,7 +141,9 @@ nav a:hover,
     }
 }
 
-/* 画面下の固定ボトムバー（SPのみ） */
+/* ===============================
+   画面下の固定ボトムバー（SPのみ）
+   =============================== */
 .bottombar {
     position: fixed;
     left: 0;
@@ -188,5 +173,142 @@ nav a:hover,
 @media (min-width: 1024px) {
     .bottombar {
         display: none;
+    }
+}
+
+/* --- 単一メニューをSPではドロワー、PCでは横並びに --- */
+.kb-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: calc(64px + env(safe-area-inset-top));
+    background: rgba(15, 17, 19, .98);
+    border-bottom: 1px solid #222;
+    transform: translateY(-110%);
+    transition: transform .25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px;
+    z-index: 1000;
+}
+
+.kb-menu a,
+.kb-menu .btn-reset,
+.kb-menu .btn-primary {
+    padding: 12px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--fg);
+}
+
+/* ヘッダーが開いているときにだけドロワーを表示 */
+.kb-header.is-open .kb-menu {
+    transform: translateY(0);
+}
+
+/* PCでは横並びに変形、ハンバーガーは非表示 */
+@media (min-width: 1024px) {
+    .kb-hamburger {
+        display: none;
+    }
+
+    .kb-menu {
+        position: static;
+        transform: none;
+        background: none;
+        border: 0;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 0;
+        height: 64px;
+    }
+
+    .kb-menu a,
+    .kb-menu .btn-reset,
+    .kb-menu .btn-primary {
+        display: flex;
+        align-items: center;
+        height: 64px;
+        padding: 0 12px;
+        border-radius: 8px;
+    }
+}
+
+/* ===== 単一ナビ: SPではドロワー、PCでは横並び ===== */
+
+/* ヘッダーは最前面に */
+.kb-header {
+    z-index: 1000;
+}
+
+/* SP初期状態：完全にしまう（非表示＆クリック不可） */
+.kb-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: calc(64px + env(safe-area-inset-top));
+    background: rgba(15, 17, 19, .98);
+    border-bottom: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px;
+
+    /* ここが肝：しまう表現 */
+    transform: translate3d(0, -120%, 0);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: transform .25s ease, opacity .2s ease;
+    z-index: 1001;
+}
+
+/* 開いた時だけ表示・クリック可能に */
+.kb-header.is-open .kb-menu {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.kb-menu a,
+.kb-menu .btn-reset,
+.kb-menu .btn-primary {
+    padding: 12px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--fg);
+}
+
+/* PCでは横並びに戻し、ハンバーガーは隠す */
+@media (min-width: 1024px) {
+    .kb-hamburger {
+        display: none;
+    }
+
+    .kb-menu {
+        position: static;
+        transform: none !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+
+        background: none;
+        border: 0;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 0;
+        height: 64px;
+    }
+
+    .kb-menu a,
+    .kb-menu .btn-reset,
+    .kb-menu .btn-primary {
+        display: flex;
+        align-items: center;
+        height: 64px;
+        padding: 0 12px;
+        border-radius: 8px;
     }
 }

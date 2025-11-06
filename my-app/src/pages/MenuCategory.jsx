@@ -19,7 +19,7 @@ export default function MenuCategory() {
     return (
         <main className="section">
             <div className="container">
-                <p><Link to="/menu" className="btn-ghost">← メニュー一覧</Link></p>
+                <p><Link to="/menu" className="btn-ghost">← メニュー</Link></p>
                 <h1 style={{ marginTop: 8 }}>{cat.title}</h1>
                 <div className="menu-grid" style={{ marginTop: 16 }}>
                     <div className="menu-card">

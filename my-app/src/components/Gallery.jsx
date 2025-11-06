@@ -3,7 +3,7 @@ const Gallery = () => (
         <div className="container">
             <h2>ギャラリー</h2>
             <div className="gallery-grid">
-                <img src="/assets/images/dishes/1.jpg" alt="料理1" />
+                <img src="..\public\aseets\karupattyo.jpg" alt="料理1" />
                 <img src="/assets/images/dishes/2.jpg" alt="料理2" />
                 <img src="/assets/images/dishes/3.jpg" alt="料理3" />
                 <img src="/assets/images/interior/1.jpg" alt="店内1" />

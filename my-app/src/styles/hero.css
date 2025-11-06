@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    min-height: 62vh;
+    min-height: 100dvh;
     /* SP最適化 */
     display: grid;
     place-items: center;
@@ -37,3 +37,25 @@
 .cta-row a {
     padding: 12px 16px;
 }
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .55));
+    z-index: 0;
+}
+
+.kb-header {
+    z-index: 1000;
+}
+
+.hero .overlay {
+    z-index: 0;
+}
+
+/* overlayは背景側へ */
+.kb-header {
+    z-index: 1000;
+}
+
+/* ヘッダーは前面 */
